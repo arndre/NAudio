@@ -78,6 +78,7 @@
     <Compile Include="Codecs\ALawDecoder.cs" />
     <Compile Include="Codecs\ALawEncoder.cs" />
     <Compile Include="Codecs\G722Codec.cs" />
+    <Compile Include="Codecs\MuLawChatCodec.cs" />
     <Compile Include="Codecs\MuLawDecoder.cs" />
     <Compile Include="Codecs\MuLawEncoder.cs" />
     <Compile Include="CoreAudioApi\AudioCaptureClient.cs" />
@@ -533,6 +534,7 @@
     <Compile Include="Dmo\InputStreamInfoFlags.cs" />
     <Compile Include="Dmo\OutputStreamInfoFlags.cs" />
     <Compile Include="Dmo\ResamplerMediaObject.cs" />
+    <Compile Include="Wave\WaveStreams\WaveStreamDescriptor.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Gui\Fader.resx">
