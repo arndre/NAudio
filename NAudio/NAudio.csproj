@@ -195,6 +195,7 @@
     <Compile Include="Utils\WavePositionExtensions.cs" />
     <Compile Include="Utils\IEEE.cs" />
     <Compile Include="Utils\NativeMethods.cs" />
+    <Compile Include="WaveFileTooLargeException.cs" />
     <Compile Include="Wave\Asio\Asio64Bit.cs" />
     <Compile Include="Wave\Asio\AsioCallbacks.cs" />
     <Compile Include="Wave\Asio\AsioChannelInfo.cs" />
