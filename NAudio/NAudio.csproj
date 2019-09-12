@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
   <PropertyGroup>
@@ -69,8 +70,26 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <DocumentationFile>bin\Release\NAudio.XML</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
+=======
+﻿<Project Sdk="MSBuild.Sdk.Extras">
+  <PropertyGroup>
+    <TargetFrameworks>net35;netstandard2.0;uap10.0</TargetFrameworks>
+    <Version>1.9.0</Version>
+    <Authors>Mark Heath &amp; Contributors</Authors>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Description>NAudio, an audio library for .NET</Description>
+    <PackageLicenseUrl>https://github.com/naudio/NAudio/blob/master/license.txt</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/naudio/NAudio</PackageProjectUrl>
+    <PackageTags>C# .NET audio sound</PackageTags>
+    <RepositoryUrl>https://github.com/naudio/NAudio</RepositoryUrl>
+    <Copyright>© Mark Heath 2019</Copyright>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">true</GenerateDocumentationFile>
+>>>>>>> ec5266ca90e33809b2c0ceccd5fdbbf54e819568
   </PropertyGroup>
+
   <ItemGroup>
+<<<<<<< HEAD
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -539,60 +558,64 @@
     <Compile Include="Dmo\OutputStreamInfoFlags.cs" />
     <Compile Include="Dmo\ResamplerMediaObject.cs" />
     <Compile Include="Wave\WaveStreams\WaveStreamDescriptor.cs" />
+=======
+    <Folder Include="Properties\" />
+>>>>>>> ec5266ca90e33809b2c0ceccd5fdbbf54e819568
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Gui\Fader.resx">
-      <DependentUpon>Fader.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gui\PanSlider.resx">
-      <DependentUpon>PanSlider.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gui\Pot.resx">
-      <DependentUpon>Pot.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gui\VolumeSlider.resx">
-      <DependentUpon>VolumeSlider.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gui\WaveViewer.resx">
-      <DependentUpon>WaveViewer.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Utils\ProgressLog.resx">
-      <DependentUpon>ProgressLog.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net35' ">
+    <Reference Include="System.Windows.Forms" />
+    <Compile Remove="Wave\WaveOutputs\WasapiOutRT.cs" />
+    <Compile Remove="Wave\WaveInputs\WasapiCaptureRT.cs" />
+    <Compile Remove="Wave\WaveOutputs\WaveFileWriterRT.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Changes.xml" />
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+    <Compile Remove="Utils\ProgressLog*.*" />
+    <Compile Remove="Gui\*.*" />
+    <Compile Remove="Wave\MmeInterop\WaveWindow.cs" />
+    <Compile Remove="Wave\MmeInterop\WaveCallbackInfo.cs" />
+    <Compile Remove="Wave\WaveInputs\WaveIn.cs" />
+    <Compile Remove="Wave\WaveOutputs\WaveOut.cs" />
+    <Compile Remove="Wave\WaveOutputs\AsioOut.cs" />
+    <Compile Remove="Wave\WaveOutputs\AsioAudioAvailableEventArgs.cs" />
+    <Compile Remove="Wave\WaveFormats\WaveFormatCustomMarshaler.cs" />
+    <Compile Remove="Wave\WaveOutputs\WasapiOutRT.cs" />
+    <Compile Remove="Wave\WaveInputs\WasapiCaptureRT.cs" />
+    <Compile Remove="Wave\WaveOutputs\WaveFileWriterRT.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
-      <Visible>False</Visible>
-      <ProductName>Windows Installer 3.1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'uap10.0' ">
+    <Compile Remove="Utils\ProgressLog*.*" />
+    <Compile Remove="Gui\*.*" />
+    <Compile Remove="Wave\Compression\*.cs" />
+    <Compile Remove="Wave\Asio\*.cs" />
+    <Compile Remove="Wave\MmeInterop\WaveWindow.cs" />
+    <Compile Remove="Wave\MmeInterop\WaveCallbackInfo.cs" />
+    <Compile Remove="Wave\Midi\MidiInterop.cs" />
+    <Compile Remove="Wave\WaveInputs\WaveIn.cs" />
+    <Compile Remove="Wave\WaveInputs\WaveInEvent.cs" />
+    <Compile Remove="Wave\WaveInputs\WasapiCapture.cs" />
+    <Compile Remove="Wave\WaveInputs\WasapiLoopbackCapture.cs" />
+    <Compile Remove="Wave\WaveOutputs\WaveOut.cs" />
+    <Compile Remove="Wave\WaveOutputs\WaveOutEvent.cs" />
+    <Compile Remove="Wave\WaveOutputs\DirectSoundOut.cs" />
+    <Compile Remove="Wave\WaveOutputs\WasapiOut.cs" />
+    <Compile Remove="Wave\WaveOutputs\MediaFoundationEncoder.cs" />
+    <Compile Remove="Wave\WaveOutputs\AsioOut.cs" />
+    <Compile Remove="Wave\WaveOutputs\AsioAudioAvailableEventArgs.cs" />
+    <Compile Remove="Wave\WaveStreams\AudioFileReader.cs" />
+    <Compile Remove="Wave\WaveStreams\Mp3FileReader.cs" />
+    <Compile Remove="Wave\WaveStreams\WaveFormatConversionProvider.cs" />
+    <Compile Remove="Wave\WaveStreams\WaveFormatConversionStream.cs" />
+    <Compile Remove="Wave\WaveFormats\WaveFormatCustomMarshaler.cs" />
+    <Compile Remove="Wave\WaveProviders\MediaFoundationResampler.cs" />
+    <Compile Remove="FileFormats\Mp3\Mp3FrameDecompressor.cs" />
+    <Compile Remove="Dmo\DmoChorus.cs" />
+    <Compile Remove="Dmo\DmoCompressor.cs" />
+    <Compile Remove="Dmo\DmoDistortion.cs" />
+    <Compile Remove="Dmo\DmoDistortion.cs" />
+    <Compile Remove="Dmo\Effect\*.cs" />
+    <Compile Remove="Wave\WaveProviders\DmoEffectWaveProvider.cs" />
   </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
