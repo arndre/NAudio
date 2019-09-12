@@ -108,6 +108,7 @@ namespace NAudio.Wave
         /// <returns>an array of driver names</returns>
         public static string[] GetDriverNames()
         {
+         //throw new Exception("not implemented");
             return AsioDriver.GetAsioDriverNames();
         }
 

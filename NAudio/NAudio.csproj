@@ -1,6 +1,6 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;uap10.0</TargetFrameworks>
+    <TargetFrameworks>net46;</TargetFrameworks>
     <Version>1.9.0</Version>
     <Authors>Mark Heath &amp; Contributors</Authors>
 
@@ -15,12 +15,12 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">true</GenerateDocumentationFile>
   </PropertyGroup>
-
   <ItemGroup>
+    <Compile Remove="Wave\WaveInputs\WasapiCaptureRT.cs" />
+    <Compile Remove="Wave\WaveOutputs\WasapiOutRT.cs" />
+    <Compile Remove="Wave\WaveOutputs\WaveFileWriterRT.cs" />
+
     <Folder Include="Properties\" />
-    <Compile Include="Codecs\MuLawChatCodec.cs" />
-    <Compile Include="Exceptions\WaveFileTooLargeException.cs" />
-    <Compile Include="Wave\WaveStreams\WaveStreamDescriptor.cs" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net35' ">
@@ -80,5 +80,9 @@
     <Compile Remove="Dmo\DmoDistortion.cs" />
     <Compile Remove="Dmo\Effect\*.cs" />
     <Compile Remove="Wave\WaveProviders\DmoEffectWaveProvider.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
 </Project>
