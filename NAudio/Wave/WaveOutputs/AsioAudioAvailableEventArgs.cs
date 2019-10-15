@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using NAudio.Wave.Asio;
 
 namespace NAudio.Wave
@@ -111,11 +112,13 @@ namespace NAudio.Wave
             return SamplesPerBuffer*channels;
         }
 
-        /// <summary>
-        /// Audio format within each buffer
-        /// Most commonly this will be one of, Int32LSB, Int16LSB, Int24LSB or Float32LSB
-        /// </summary>
-        public AsioSampleType AsioSampleType { get; private set; }
+
+
+      /// <summary>
+      /// Audio format within each buffer
+      /// Most commonly this will be one of, Int32LSB, Int16LSB, Int24LSB or Float32LSB
+      /// </summary>
+      public AsioSampleType AsioSampleType { get; private set; }
 
         /// <summary>
         /// Gets as interleaved samples, allocating a float array

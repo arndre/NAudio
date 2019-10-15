@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 
 // ReSharper disable once CheckNamespace
@@ -13,7 +13,7 @@ namespace NAudio.Wave
         /// <summary>
         /// Creates a new silence producing wave provider
         /// </summary>
-        /// <param name="wf">Desired WaveFormat (should be PCM / IEE float</param>
+        /// <param name="wf">Desired WaveFormat (should be PCM / IEE float)</param>
         public SilenceProvider(WaveFormat wf) { WaveFormat = wf; }
 
         /// <summary>
