@@ -88,7 +88,7 @@ namespace NAudio.Wave
       /// <returns></returns>
       public List<IWaveProvider> GetInputStreams()
       {
-         lock(inputs)
+         lock (inputs)
          {
             return this.inputs;
          }
