@@ -89,7 +89,7 @@ namespace NAudio.Wave
       /// </summary>
       ~AcmMp3FrameDecompressor()
       {
-         System.Diagnostics.Debug.Assert(false, "AcmMp3FrameDecompressor Dispose was not called");
+        // System.Diagnostics.Debug.Assert(false, "AcmMp3FrameDecompressor Dispose was not called");
          Dispose();
       }
    }
